@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Producción - Curso de Español (A1-B1)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .status-select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 0.7rem top 50%;
+            background-size: 0.65rem auto;
+        }
+        .status-pendiente { background-color: #fecaca; color: #991b1b; }
+        .status-grabando { background-color: #fef08a; color: #854d0e; }
+        .status-editando { background-color: #bfdbfe; color: #1e40af; }
+        .status-publicado { background-color: #dcfce7; color: #166534; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-blue-900">Plan de Producción del Curso de Español</h1>
+            <p class="text-xl text-gray-600 mt-2">Seguimiento de 80 Videos desde A1 hasta B1</p>
+        </header>
+
+        <!-- Barra de Progreso General -->
+        <div class="mb-12 bg-white p-6 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-700 mb-3">Progreso Total del Curso</h2>
+            <div class="w-full bg-gray-200 rounded-full h-6">
+                <div id="progress-bar-total" class="bg-green-600 h-6 text-center text-white font-bold rounded-full transition-all duration-500" style="width: 0%;">0%</div>
+            </div>
+            <p id="progress-text-total" class="text-center mt-2 font-semibold text-gray-600">0 de 80 videos publicados</p>
+        </div>
+
+        <main class="space-y-8">
+            <!-- Nivel A1 -->
+            <div class="bg-white rounded-xl shadow-lg">
+                <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
+                    <div>
+                        <h2 class="text-3xl font-bold text-blue-800">Nivel A1: La Base Sólida (25 Videos)</h2>
+                        <div class="w-full bg-gray-200 rounded-full h-4 mt-3">
+                            <div id="progress-bar-a1" class="bg-blue-500 h-4 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                        </div>
+                        <p id="progress-text-a1" class="text-sm mt-2 font-semibold text-gray-500">0 de 25 videos publicados</p>
+                    </div>
+                    <i class="fas fa-chevron-down text-blue-800 text-2xl transition-transform"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-6 border-t border-gray-200">
+                        <!-- Tabla de Videos A1 -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full table-auto">
+                                <thead class="bg-gray-100 text-left">
+                                    <tr>
+                                        <th class="p-3 font-bold">Video #</th>
+                                        <th class="p-3 font-bold">Bloque</th>
+                                        <th class="p-3 font-bold">Tema</th>
+                                        <th class="p-3 font-bold">Tiempo Est.</th>
+                                        <th class="p-3 font-bold">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-a1">
+                                    <!-- Contenido generado por JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nivel A2 -->
+            <div class="bg-white rounded-xl shadow-lg">
+                <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
+                     <div>
+                        <h2 class="text-3xl font-bold text-green-800">Nivel A2: Construyendo Conexiones (25 Videos)</h2>
+                        <div class="w-full bg-gray-200 rounded-full h-4 mt-3">
+                            <div id="progress-bar-a2" class="bg-green-500 h-4 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                        </div>
+                        <p id="progress-text-a2" class="text-sm mt-2 font-semibold text-gray-500">0 de 25 videos publicados</p>
+                    </div>
+                    <i class="fas fa-chevron-down text-green-800 text-2xl transition-transform"></i>
+                </button>
+                <div class="accordion-content">
+                     <div class="p-6 border-t border-gray-200">
+                        <div class="overflow-x-auto">
+                            <table class="w-full table-auto">
+                                <thead class="bg-gray-100 text-left">
+                                    <tr>
+                                        <th class="p-3 font-bold">Video #</th>
+                                        <th class="p-3 font-bold">Bloque</th>
+                                        <th class="p-3 font-bold">Tema</th>
+                                        <th class="p-3 font-bold">Tiempo Est.</th>
+                                        <th class="p-3 font-bold">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-a2">
+                                    <!-- Contenido generado por JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nivel B1 -->
+            <div class="bg-white rounded-xl shadow-lg">
+                <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
+                     <div>
+                        <h2 class="text-3xl font-bold text-purple-800">Nivel B1: El Salto a la Fluidez (30 Videos)</h2>
+                        <div class="w-full bg-gray-200 rounded-full h-4 mt-3">
+                            <div id="progress-bar-b1" class="bg-purple-500 h-4 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                        </div>
+                        <p id="progress-text-b1" class="text-sm mt-2 font-semibold text-gray-500">0 de 30 videos publicados</p>
+                    </div>
+                    <i class="fas fa-chevron-down text-purple-800 text-2xl transition-transform"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-6 border-t border-gray-200">
+                        <div class="overflow-x-auto">
+                            <table class="w-full table-auto">
+                                <thead class="bg-gray-100 text-left">
+                                    <tr>
+                                        <th class="p-3 font-bold">Video #</th>
+                                        <th class="p-3 font-bold">Bloque</th>
+                                        <th class="p-3 font-bold">Tema</th>
+                                        <th class="p-3 font-bold">Tiempo Est.</th>
+                                        <th class="p-3 font-bold">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-b1">
+                                    <!-- Contenido generado por JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+<script>
+const videoData = {
+    a1: [
+        { bloque: 1, tema: "¡Bienvenidos al curso! El alfabeto, los sonidos clave del español (ñ, ll, rr, c/z, g/j).", tiempo: 12 },
+        { bloque: 1, tema: "Saludos y despedidas (formales e informales). Pronombres personales (yo, tú, él...).", tiempo: 10 },
+        { bloque: 1, tema: "El verbo SER. Presentarse, decir la nacionalidad y la profesión. Género y número.", tiempo: 15 },
+        { bloque: 1, tema: "Artículos determinados e indeterminados (el, la, un, una). Números del 0 al 20.", tiempo: 12 },
+        { bloque: 1, tema: "El verbo ESTAR. Usos para localización y estados de ánimo. Diferencia básica SER/ESTAR.", tiempo: 15 },
+        { bloque: 2, tema: "Describir personas y objetos. Adjetivos comunes y concordancia.", tiempo: 12 },
+        { bloque: 2, tema: "La familia. Vocabulario y adjetivos posesivos (mi, tu, su...).", tiempo: 10 },
+        { bloque: 2, tema: "Los números del 21 al 100. Preguntar y decir la edad con TENER.", tiempo: 12 },
+        { bloque: 2, tema: "Describir mi casa. Vocabulario de habitaciones y muebles. El uso de 'hay'.", tiempo: 10 },
+        { bloque: 2, tema: "Repaso y práctica del Bloque 1 y 2. Mini-diálogos.", tiempo: 15 },
+        { bloque: 3, tema: "Verbos regulares en presente (-AR).", tiempo: 15 },
+        { bloque: 3, tema: "Verbos regulares en presente (-ER, -IR).", tiempo: 15 },
+        { bloque: 3, tema: "Decir la hora. Días de la semana, meses y estaciones.", tiempo: 12 },
+        { bloque: 3, tema: "Verbos reflexivos básicos. Describir la rutina diaria.", tiempo: 15 },
+        { bloque: 3, tema: "El verbo GUSTAR y similares (encantar, interesar).", tiempo: 15 },
+        { bloque: 3, tema: "La comida. Vocabulario y situaciones en el restaurante.", tiempo: 12 },
+        { bloque: 3, tema: "Verbos irregulares comunes en presente (ir, tener, venir).", tiempo: 15 },
+        { bloque: 4, tema: "Verbos irregulares con cambio vocálico (querer, poder, pedir).", tiempo: 15 },
+        { bloque: 4, tema: "La ropa y el clima. Vocabulario y el verbo LLEVAR.", tiempo: 12 },
+        { bloque: 4, tema: "Dar direcciones. Preposiciones de lugar.", tiempo: 10 },
+        { bloque: 4, tema: "El futuro próximo: IR + A + Infinitivo. Hablar de planes.", tiempo: 12 },
+        { bloque: 4, tema: "Introducción al pasado: El Pretérito Perfecto (HABER + participio).", tiempo: 15 },
+        { bloque: 4, tema: "Usos del Pretérito Perfecto. Experiencias recientes.", tiempo: 15 },
+        { bloque: 4, tema: "Participios irregulares (hecho, visto, dicho...).", tiempo: 10 },
+        { bloque: 4, tema: "Repaso general A1. Proyecto: 'Graba un video sobre tu vida'.", tiempo: 15 },
+    ],
+    a2: [
+        { bloque: 5, tema: "El Pretérito Indefinido: verbos regulares.", tiempo: 15 },
+        { bloque: 5, tema: "Indefinido: irregulares comunes (ser, ir, dar, ver).", tiempo: 15 },
+        { bloque: 5, tema: "Indefinido: otros irregulares (tener, estar, poder...).", tiempo: 15 },
+        { bloque: 5, tema: "El Pretérito Imperfecto: formación y usos.", tiempo: 15 },
+        { bloque: 5, tema: "Contraste: Indefinido vs. Imperfecto. La clave para narrar.", tiempo: 20 },
+        { bloque: 5, tema: "Práctica de la narración con los dos pasados.", tiempo: 15 },
+        { bloque: 5, tema: "Pronombres de Objeto Directo (lo, la, los, las).", tiempo: 15 },
+        { bloque: 5, tema: "Pronombres de Objeto Indirecto (le, les).", tiempo: 15 },
+        { bloque: 6, tema: "Uso combinado de pronombres (se lo, me la...).", tiempo: 15 },
+        { bloque: 6, tema: "Comparativos y Superlativos.", tiempo: 15 },
+        { bloque: 6, tema: "El Futuro Simple: regulares e irregulares.", tiempo: 15 },
+        { bloque: 6, tema: "El Imperativo Afirmativo (tú y usted).", tiempo: 15 },
+        { bloque: 6, tema: "El Imperativo Negativo (tú y usted).", tiempo: 15 },
+        { bloque: 6, tema: "Expresar obligación (tener que, deber, hay que).", tiempo: 12 },
+        { bloque: 6, tema: "El gerundio (estar + -ando/-iendo).", tiempo: 12 },
+        { bloque: 6, tema: "Repaso y práctica del Bloque 5 y 6.", tiempo: 15 },
+        { bloque: 7, tema: "Por y Para. La gran diferencia.", tiempo: 18 },
+        { bloque: 7, tema: "Conectores del discurso.", tiempo: 12 },
+        { bloque: 7, tema: "El cuerpo humano y la salud. Verbo DOLER.", tiempo: 15 },
+        { bloque: 7, tema: "El Condicional Simple (haría, podría).", tiempo: 15 },
+        { bloque: 7, tema: "Posesivos tónicos (mío, tuyo, suyo...).", tiempo: 10 },
+        { bloque: 7, tema: "El Pretérito Pluscuamperfecto (había comido).", tiempo: 15 },
+        { bloque: 7, tema: "Vocabulario de viajes y turismo.", tiempo: 12 },
+        { bloque: 7, tema: "Introducción al Subjuntivo: ¿Qué es y por qué existe?", tiempo: 15 },
+        { bloque: 7, tema: "Repaso general A2. Proyecto: 'Cuenta tu último viaje'.", tiempo: 15 },
+    ],
+    b1: [
+        { bloque: 8, tema: "El Presente de Subjuntivo: formación.", tiempo: 18 },
+        { bloque: 8, tema: "Subjuntivo con verbos de voluntad y deseo (querer que...).", tiempo: 15 },
+        { bloque: 8, tema: "Subjuntivo con verbos de emoción (me alegro de que...).", tiempo: 15 },
+        { bloque: 8, tema: "Subjuntivo con expresiones de duda y negación (no creo que...).", tiempo: 15 },
+        { bloque: 8, tema: "Indicativo vs. Subjuntivo en opiniones.", tiempo: 18 },
+        { bloque: 8, tema: "Subjuntivo con expresiones impersonales (es importante que...).", tiempo: 12 },
+        { bloque: 8, tema: "Subjuntivo con conjunciones de tiempo futuro (cuando...).", tiempo: 15 },
+        { bloque: 8, tema: "Subjuntivo para dar consejos y sugerencias.", tiempo: 12 },
+        { bloque: 8, tema: "Oraciones de relativo con subjuntivo (busco un piso que tenga...).", tiempo: 15 },
+        { bloque: 8, tema: "Repaso del Presente de Subjuntivo.", tiempo: 18 },
+        { bloque: 8, tema: "El Imperfecto de Subjuntivo: formación (-ra y -se).", tiempo: 15 },
+        { bloque: 8, tema: "Uso del Imperfecto de Subjuntivo en el pasado.", tiempo: 15 },
+        { bloque: 8, tema: "Oraciones condicionales irreales (Si...).", tiempo: 20 },
+        { bloque: 8, tema: "El Pretérito Perfecto de Subjuntivo (haya comido).", tiempo: 15 },
+        { bloque: 8, tema: "Repaso completo de todos los tiempos del Subjuntivo.", tiempo: 20 },
+        { bloque: 9, tema: "El Estilo Indirecto en presente.", tiempo: 15 },
+        { bloque: 9, tema: "El Estilo Indirecto en pasado y cambios verbales.", tiempo: 18 },
+        { bloque: 9, tema: "El Estilo Indirecto con preguntas y órdenes.", tiempo: 15 },
+        { bloque: 9, tema: "La Voz Pasiva y la Pasiva Refleja.", tiempo: 15 },
+        { bloque: 9, tema: "Oraciones concesivas (aunque + indicativo/subjuntivo).", tiempo: 15 },
+        { bloque: 9, tema: "Oraciones causales y consecutivas.", tiempo: 12 },
+        { bloque: 9, tema: "Perífrasis verbales (empezar a, dejar de...).", tiempo: 15 },
+        { bloque: 9, tema: "Vocabulario del mundo laboral y académico.", tiempo: 12 },
+        { bloque: 9, tema: "Vocabulario de medios de comunicación y tecnología.", tiempo: 12 },
+        { bloque: 9, tema: "Expresar acuerdo y desacuerdo. Defender una opinión.", tiempo: 15 },
+        { bloque: 9, tema: "Tácticas para la comprensión de lectura DELE B1.", tiempo: 15 },
+        { bloque: 9, tema: "Tácticas para la comprensión auditiva DELE B1.", tiempo: 15 },
+        { bloque: 9, tema: "Tácticas para la expresión escrita DELE B1.", tiempo: 15 },
+        { bloque: 9, tema: "Tácticas para la expresión oral DELE B1.", tiempo: 15 },
+        { bloque: 9, tema: "Resumen del B1 y próximos pasos hacia el B2.", tiempo: 12 },
+    ]
+};
+
+const statusOptions = `
+    <option value="pendiente">Pendiente</option>
+    <option value="grabando">Grabando</option>
+    <option value="editando">Editando</option>
+    <option value="publicado">Publicado</option>
+`;
+
+const statusClasses = {
+    pendiente: 'status-pendiente',
+    grabando: 'status-grabando',
+    editando: 'status-editando',
+    publicado: 'status-publicado'
+};
+
+function populateTable(nivel, data) {
+    const tableBody = document.getElementById(`table-${nivel}`);
+    let videoCounter = nivel === 'a1' ? 1 : (nivel === 'a2' ? 26 : 51);
+    tableBody.innerHTML = data.map((video, index) => `
+        <tr class="border-b border-gray-200">
+            <td class="p-3 font-semibold">Video ${videoCounter + index}</td>
+            <td class="p-3">Bloque ${video.bloque}</td>
+            <td class="p-3">${video.tema}</td>
+            <td class="p-3">${video.tiempo} min</td>
+            <td class="p-3">
+                <select class="status-select rounded-full font-semibold border-0" data-nivel="${nivel}">
+                    ${statusOptions}
+                </select>
+            </td>
+        </tr>
+    `).join('');
+}
+
+function updateProgress() {
+    let totalPublicados = 0;
+    const niveles = ['a1', 'a2', 'b1'];
+    
+    niveles.forEach(nivel => {
+        const selects = document.querySelectorAll(`#table-${nivel} .status-select`);
+        const totalVideosNivel = selects.length;
+        let publicadosNivel = 0;
+        
+        selects.forEach(select => {
+            if (select.value === 'publicado') {
+                publicadosNivel++;
+            }
+        });
+        
+        totalPublicados += publicadosNivel;
+        const porcentajeNivel = totalVideosNivel > 0 ? (publicadosNivel / totalVideosNivel) * 100 : 0;
+        
+        document.getElementById(`progress-bar-${nivel}`).style.width = `${porcentajeNivel}%`;
+        document.getElementById(`progress-text-${nivel}`).innerText = `${publicadosNivel} de ${totalVideosNivel} videos publicados`;
+    });
+
+    const totalVideosCurso = 80;
+    const porcentajeTotal = totalVideosCurso > 0 ? (totalPublicados / totalVideosCurso) * 100 : 0;
+    
+    const progressBarTotal = document.getElementById('progress-bar-total');
+    progressBarTotal.style.width = `${porcentajeTotal}%`;
+    progressBarTotal.innerText = `${porcentajeTotal.toFixed(0)}%`;
+    document.getElementById('progress-text-total').innerText = `${totalPublicados} de ${totalVideosCurso} videos publicados`;
+}
+
+
+function updateSelectColor(selectElement) {
+    selectElement.className = 'status-select rounded-full font-semibold border-0'; // Reset
+    selectElement.classList.add(statusClasses[selectElement.value]);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    populateTable('a1', videoData.a1);
+    populateTable('a2', videoData.a2);
+    populateTable('b1', videoData.b1);
+
+    const allSelects = document.querySelectorAll('.status-select');
+    allSelects.forEach(select => {
+        // Load status from localStorage
+        const videoId = select.closest('tr').cells[0].textContent;
+        const savedStatus = localStorage.getItem(videoId);
+        if (savedStatus) {
+            select.value = savedStatus;
+        }
+        
+        updateSelectColor(select);
+        select.addEventListener('change', (e) => {
+            updateSelectColor(e.target);
+            // Save status to localStorage
+            const videoIdToSave = e.target.closest('tr').cells[0].textContent;
+            localStorage.setItem(videoIdToSave, e.target.value);
+            updateProgress();
+        });
+    });
+
+    const accordions = document.querySelectorAll('.accordion-header');
+    accordions.forEach(accordion => {
+        accordion.addEventListener('click', () => {
+            const content = accordion.nextElementSibling;
+            const icon = accordion.querySelector('i');
+            icon.classList.toggle('rotate-180');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
+
+    updateProgress();
+});
+</script>
+
+</body>
+</html>
