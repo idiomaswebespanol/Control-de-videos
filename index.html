@@ -353,6 +353,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updateProgress();
+
+    const niveles = ['a1', 'a2', 'b1'];
+    niveles.forEach(nivel => {
+        const textarea = document.getElementById(`notes-${nivel}`);
+        if (textarea) {
+            // Load notes from localStorage
+            const savedNotes = localStorage.getItem(`notes-${nivel}`);
+            if (savedNotes) {
+                textarea.value = savedNotes;
+            }
+
+            // Save notes to localStorage on input
+            textarea.addEventListener('input', () => {
+                localStorage.setItem(`notes-${nivel}`, textarea.value);
+            });
+        }
+    });
 });
 </script>
 
